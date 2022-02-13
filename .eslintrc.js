@@ -28,6 +28,7 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
+    'import/prefer-default-export': 'off',
   },
   ignorePatterns: ['.eslintrc.js'],
 };
