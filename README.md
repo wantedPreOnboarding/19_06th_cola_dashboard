@@ -4,9 +4,10 @@
 2. 👋🏻 팀원 소개
 3. 🔗 배포 링크
 4. 📄 협업 문서
-5. 👩‍💻구현 기능
+5. 👩‍💻 구현 기능
 6. 💿 설치 및 실행 방법
 7. 🛠️ 기술 스택
+8. 🌲 프로젝트 구조
 
 ## 1. 💁 프로젝트 소개
 
@@ -46,6 +47,13 @@
 [프로젝트 링크 바로가기]()
 
 ## 4. 📄 협업 문서
+
+<details>
+<summary>토글 예시</summary>
+<div markdown="1">
+예시
+</div>
+</details>
 
 [프로젝트 노션 바로가기]()
 
@@ -98,3 +106,5 @@ $ yarn start
 <div>
   <img src="https://img.shields.io/badge/git-flow-brightgreen?style=for-the-badge&logo"/>
 </div>
+
+## 8. 🌲 프로젝트 구조
