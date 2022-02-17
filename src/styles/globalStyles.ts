@@ -33,8 +33,8 @@ const GrobalStyles = createGlobalStyle`
     font-family: 'Noto Sans KR', sans-serif; ;
     line-height: 1;
   }
-
-  * {
+  
+  *, *::before, *::after {
     box-sizing: border-box;
   }
 `;
