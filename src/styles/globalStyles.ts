@@ -12,23 +12,29 @@ const GrobalStyles = createGlobalStyle`
   padding: 0;
   border: 0;
   }
+
   ol, ul, li {
     list-style: none;
   }
+
   a {
     color:inherit;
     text-decoration: none;
     cursor: pointer;
   }
+
   button{
     border: none;
     background: inherit;
     cursor: pointer;
   }
+  
   body {
+    font-family: 'Noto Sans KR', sans-serif; ;
     line-height: 1;
   }
-  * {
+  
+  *, *::before, *::after {
     box-sizing: border-box;
   }
 `;
