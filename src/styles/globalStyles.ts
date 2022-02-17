@@ -3,22 +3,33 @@ import reset from 'styled-reset';
 
 const GrobalStyles = createGlobalStyle`
   ${reset}
-
-  * {
-    box-sizing: border-box;
+  body, div, span, h1, h2, h3, h4,
+  h5, h6, p, a, em, img, q, strong,
+  b, i, ul, li, form, input, button,
+  label, article,footer, nav, section, 
+  main {
+  margin: 0;
+  padding: 0;
+  border: 0;
   }
-
+  ol, ul, li {
+    list-style: none;
+  }
   a {
     color:inherit;
     text-decoration: none;
+    cursor: pointer;
   }
-
   button{
-    padding: 0;
-    margin: 0;
     border: none;
     background: inherit;
     cursor: pointer;
+  }
+  body {
+    line-height: 1;
+  }
+  * {
+    box-sizing: border-box;
   }
 `;
 

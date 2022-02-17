@@ -1,4 +1,4 @@
-# 프로젝트
+# Cola Dashboard
 
 1. 💁 프로젝트 소개
 2. 👋🏻 팀원 소개
@@ -11,8 +11,8 @@
 
 ## 1. 💁 프로젝트 소개
 
-- 주제 : 프로젝트
-- 기간 : 22.02.07 ~ 22.02.09
+- 주제 : 물류를 처리를 위한 대시보드 페이지
+- 기간 : 22.02.17 ~ 22.02.19
 
 ## 2. 👋🏻 팀원 소개
 
@@ -48,14 +48,14 @@
 
 ## 4. 📄 협업 문서
 
+[프로젝트 노션 바로가기](https://www.notion.so/3-2-85a8e70f1c134a4f975f0ffc91f0c06e)
+
 <details>
 <summary>토글 예시</summary>
 <div markdown="1">
 예시
 </div>
 </details>
-
-[프로젝트 노션 바로가기]()
 
 ## 5. 👩‍💻 기능 목록 명세
 
@@ -67,8 +67,6 @@
 
 ### ✔ 담당자 : 이송현
 
-### ✔ 담당자 : 팀 전체
-
 - 가공 방식 필터
 - 재료 선택 필터
 
@@ -77,7 +75,7 @@
 Project Clone
 
 ```bash
-$ https://github.com/wantedPreOnboarding/19_03rd_dashboard
+$ git clone
 
 ```
 
@@ -97,14 +95,8 @@ $ yarn start
 
 <div>
   <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
-</div>
 
-<div>
   <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"/>
-</div>
 
-<div>
   <img src="https://img.shields.io/badge/git-flow-brightgreen?style=for-the-badge&logo"/>
 </div>
-
-## 8. 🌲 프로젝트 구조
