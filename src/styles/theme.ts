@@ -18,7 +18,7 @@ const theme: DefaultTheme = {
     l: '16px',
   },
   fontWeight: {
-    semiStrong: 500,
+    semiStrong: 600,
     strong: 800,
   },
 };
