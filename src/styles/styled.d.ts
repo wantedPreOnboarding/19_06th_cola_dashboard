@@ -4,17 +4,15 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
       blue: string;
-      purple: string;
-      lightPurple: string;
-      darkPurple: string;
-      mauve: string;
-      green: string;
-      lightGreen: string;
+      lightBlue: string;
+      sky: string;
+      white: string;
+      black: string;
+      gray: string;
+      red: string;
+      lightGray: string;
       red: string;
       lightRed: string;
-      brown: string;
-      darkBrown: string;
-      lightBrown: string;
     };
     fontSize: {
       s: string;
