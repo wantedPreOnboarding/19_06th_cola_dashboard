@@ -28,7 +28,7 @@ const GrobalStyles = createGlobalStyle`
   body {
     line-height: 1;
   }
-  * {
+  *, *::before, *::after {
     box-sizing: border-box;
   }
 `;
