@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.section`
+export const Wrapper = styled.button`
   width: 60px;
   height: 60px;
   position: absolute;
