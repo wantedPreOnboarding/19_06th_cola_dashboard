@@ -1,16 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ThemeProvider } from 'styled-components';
+import App from './App';
 import GrobalStyles from 'styles/globalStyles';
 import { theme } from 'styles/theme';
-import App from './App';
+import { ThemeProvider } from '@mui/material/styles';
+import { Provider } from 'react-redux';
+import { store } from 'redux/store';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <GrobalStyles />
-      <App />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <GrobalStyles />
+        <App />
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

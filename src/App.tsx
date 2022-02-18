@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Dashboard } from 'pages';
 import { Header } from 'components/common';
 import { FilterBox, FloatFilterBox } from 'components/Filter';
 
@@ -15,6 +16,7 @@ const App = () => {
     <div className="App">
       <Header />
       <FilterBox id="2" changeHandler={changeHandler} checkedInputs={checkedInputs} />
+      <Dashboard />
       <FloatFilterBox id="2" changeHandler={changeHandler} checkedInputs={checkedInputs} />
     </div>
   );
