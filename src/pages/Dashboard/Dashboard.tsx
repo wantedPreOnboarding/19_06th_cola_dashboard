@@ -10,7 +10,7 @@ const Dashboard = (): ReactElement => {
         <>Oh no, there was an error</>
       ) : (
         <>
-          <OrderSheet orderSheet={data} isLoading={isLoading} />
+          <OrderSheet orderSheet={data} />
         </>
       )}
     </div>
