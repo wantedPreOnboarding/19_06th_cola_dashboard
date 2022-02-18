@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header } from 'components/common';
-import Search from 'components/common/Search/Search';
+import Search from './Search';
 
 const SearchTest = () => {
   const updateSearch = (updateResult: string[]): void => {
