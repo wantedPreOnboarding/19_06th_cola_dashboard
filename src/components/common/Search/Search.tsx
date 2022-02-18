@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
-import { theme } from 'styles/theme';
 import SearchProps from './Search.prop';
 import { filterSearch } from 'utils';
 
@@ -30,13 +29,12 @@ const Search = ({ data, updateResult }: SearchProps) => {
             id="SearchBar"
             aria-describedby="SearchBar"
             label="Search ..."
-            variant="outlined"
-            sx={{ bgcolor: theme.colors.sky }}
+            sx={{ bgcolor: 'primary.xlight', borderRadius: '6px' }}
             onChange={searchAreaChange}
             InputProps={{
               endAdornment: (
-                <IconButton sx={{ bgcolor: theme.colors.sky }} size="large" aria-label="search">
-                  <SearchIcon sx={{ color: theme.colors.blue }} />
+                <IconButton sx={{ bgcolor: 'primary' }} size="large" aria-label="search">
+                  <SearchIcon sx={{ color: 'primary' }} />
                 </IconButton>
               ),
             }}
