@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import CssBaseline from '@mui/material/CssBaseline';
-import MaterialGlobalStyles from 'styles/MUIGlobalStyles';
 import { theme } from 'styles/theme';
 import { ThemeProvider } from '@mui/material/styles';
 import { Provider } from 'react-redux';
