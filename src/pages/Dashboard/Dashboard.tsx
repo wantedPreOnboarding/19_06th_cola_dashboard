@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { useGetOrderSheetQuery } from 'redux/services/orderSheet';
-import { OrderSheet } from 'components';
+import OrderSheet from 'components/OrderSheet/OrderSheet';
 
 const Dashboard = (): ReactElement => {
   const { data, error, isLoading } = useGetOrderSheetQuery(null);
