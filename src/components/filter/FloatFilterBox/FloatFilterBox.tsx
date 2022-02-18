@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
-import { FloatBtn, FilterCheckBoxs } from '..';
-import * as S from './FloatFilterBox.styled';
+import CheckboxLabels from '../CheckboxLabels/CheckboxLabels';
+import FloatingBtn from '../FloatingBtn/FloatingBtn';
+import * as M from './FloatFilterBox.styled';
+import { FilterProps } from '../FilterProps.type';
 
-const FloatFilterBox = () => {
+const FloatFilterBox = ({ id, changeHandler, checkedInputs }: FilterProps) => {
   const [clickedBar, setClickedBar] = useState(false);
   const filterBarHandler = () => {
     setClickedBar(!clickedBar);
   };
-
   return (
-    <S.Wrapper>
-      <FloatBtn filterBarHandler={filterBarHandler} />
-      <div style={{ position: 'fixed', bottom: '120px', right: '50px', height: 'auto' }}>
-        {clickedBar && <FilterCheckBoxs />}
-      </div>
-    </S.Wrapper>
+    <M.StyledBox>
+      <FloatingBtn filterBarHandler={filterBarHandler} />
+      {clickedBar && (
+        <CheckboxLabels id={id} changeHandler={changeHandler} checkedInputs={checkedInputs} />
+      )}
+    </M.StyledBox>
   );
 };
 

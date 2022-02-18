@@ -1,9 +1,11 @@
-import styled from 'styled-components';
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 
-export const Wrapper = styled.section`
-  position: absolute;
-  right: 50px;
-  top: 80px;
-  width: 250px;
+export const StyledBox = styled(Box)`
+  width: 250;
   height: auto;
+  background-color: white;
+  position: absolute;
+  top: 80px;
+  right: 50px;
 `;

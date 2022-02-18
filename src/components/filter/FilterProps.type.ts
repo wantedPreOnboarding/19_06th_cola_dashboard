@@ -1,8 +1,4 @@
-export type CheckBoxLabelProps = {
-  checked: boolean;
-};
-
-export type CheckBoxProps = {
+export type FilterProps = {
   id: string;
   checkedInputs: string[];
   changeHandler: (checked: boolean, id: string) => void;

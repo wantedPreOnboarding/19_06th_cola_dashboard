@@ -1,3 +1,3 @@
-export default interface FloatBtnProps {
+export type FloatingBtnProps = {
   filterBarHandler: React.MouseEventHandler<HTMLButtonElement>;
-}
+};

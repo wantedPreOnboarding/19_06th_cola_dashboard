@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
-import { FilterBar, FilterCheckBoxs } from '..';
-import * as S from './FilterBox.styled';
+import CheckboxLabels from '../CheckboxLabels/CheckboxLabels';
+import FilterBar from '../FilterBar/FilterBar';
+import * as M from './FilterBox.styled';
+import { FilterProps } from '../FilterProps.type';
 
-const FilterBox = () => {
+const FilterBox = ({ id, changeHandler, checkedInputs }: FilterProps) => {
   const [clickedBar, setClickedBar] = useState(false);
   const filterBarHandler = () => {
     setClickedBar(!clickedBar);
   };
-
   return (
-    <S.Wrapper>
+    <M.StyledBox>
       <FilterBar filterBarHandler={filterBarHandler} />
-      {clickedBar && <FilterCheckBoxs />}
-    </S.Wrapper>
+      {clickedBar && (
+        <CheckboxLabels id={id} changeHandler={changeHandler} checkedInputs={checkedInputs} />
+      )}
+    </M.StyledBox>
   );
 };
 
