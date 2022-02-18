@@ -1,11 +1,8 @@
 import React, { ReactElement } from 'react';
 import OrderSheetRow from './OrderSheetRow/OrderSheetRow';
-import { GridColDef } from '@mui/x-data-grid';
 import { Table, TableHead, TableBody } from '@mui/material';
 import * as M from './OrderSheet.styled';
 import { OrderSheetProps } from './OrderSheet.type';
-import { Order } from 'redux/services/orderSheet.type';
-import { ORDER_SHEET_KEY_MAP } from 'consts/orderSheet';
 
 const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
   return (
