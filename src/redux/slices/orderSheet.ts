@@ -7,8 +7,8 @@ export interface ortderSheetState {
 }
 
 const initialState: ortderSheetState = {
-  ids: [],
-  columns: Object.values(ORDER_SHEET_KEY_MAP),
+  ids: [], //현재 테이블에서 보여줄 엑셀 행들
+  columns: Object.values(ORDER_SHEET_KEY_MAP), // 현재 테이블에서 보여줘야할 컬럼들
 };
 
 export const orderSheetSlice = createSlice({

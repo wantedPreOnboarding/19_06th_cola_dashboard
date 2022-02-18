@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import { useGetOrderSheetQuery } from 'redux/services/orderSheet';
+import { OrderSheet } from 'components';
 
 const Dashboard = (): ReactElement => {
   const { data, error, isLoading } = useGetOrderSheetQuery(null);
@@ -7,13 +8,11 @@ const Dashboard = (): ReactElement => {
     <div className="App">
       {error ? (
         <>Oh no, there was an error</>
-      ) : isLoading ? (
-        <>Loading...</>
-      ) : data ? (
+      ) : (
         <>
-          <h3>{data[0].id}</h3>
+          <OrderSheet orderSheet={data} isLoading={isLoading} />
         </>
-      ) : null}
+      )}
     </div>
   );
 };
