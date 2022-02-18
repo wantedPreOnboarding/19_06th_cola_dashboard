@@ -23,3 +23,9 @@ export const StyledBtn = styled(Button)`
     margin-left: 5px;
   }
 `;
+
+export const Title = styled('h3')(
+  ({ theme }) => `
+  font-size: ${theme.typography.body1.fontSize};
+  `,
+);

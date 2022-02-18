@@ -7,14 +7,13 @@ import { theme } from 'styles/theme';
 import { ThemeProvider } from '@mui/material/styles';
 import { Provider } from 'react-redux';
 import { store } from 'redux/store';
-import MUIGlobalStyles from 'styles/MUIGlobalStyles';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <MUIGlobalStyles />
+        <MaterialGlobalStyles />
         <App />
       </ThemeProvider>
     </Provider>

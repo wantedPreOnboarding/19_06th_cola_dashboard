@@ -20,5 +20,11 @@ export const orderSheetSlice = createSlice({
     // renewalColumns: (state, action: PayloadAction<ortderSheetState['columns']>) => {
     //   state.columns = action.payload;
     // },
+    addId: (state, action: PayloadAction<number>) => {
+      state.ids.push(action.payload);
+    },
   },
 });
+export const { addId } = orderSheetSlice.actions;
+
+export default orderSheetSlice.reducer;

@@ -3,6 +3,7 @@ import Stack from '@mui/material/Stack';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import * as M from './FilterBar.styled';
 import { FilterBarProps } from './FilterBar.type';
+
 const FilterBar = ({ filterBarHandler }: FilterBarProps) => {
   return (
     <Stack spacing={2} direction="row">
