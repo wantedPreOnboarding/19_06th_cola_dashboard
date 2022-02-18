@@ -1,9 +1,9 @@
 import React from 'react';
-import { Header } from 'components/common';
+import { result } from 'utils/filterSearch/filterSearch.type';
 import Search from './Search';
 
 const SearchTest = () => {
-  const updateSearch = (updateResult: string[]): void => {
+  const updateSearch = (updateResult: result[]): void => {
     console.log(updateResult);
   };
   return (
