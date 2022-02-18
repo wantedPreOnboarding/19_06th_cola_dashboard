@@ -3,7 +3,6 @@ import { useGetOrderSheetQuery } from 'redux/services/orderSheet';
 
 const Dashboard = (): ReactElement => {
   const { data, error, isLoading } = useGetOrderSheetQuery(null);
-
   return (
     <div className="App">
       {error ? (

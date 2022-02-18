@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ORDER_SHEET_KEY_MAP } from 'consts/orderSheet';
 
 export interface ortderSheetState {
   ids: number[];
@@ -7,7 +8,7 @@ export interface ortderSheetState {
 
 const initialState: ortderSheetState = {
   ids: [],
-  columns: [],
+  columns: Object.values(ORDER_SHEET_KEY_MAP),
 };
 
 export const orderSheetSlice = createSlice({
@@ -17,8 +18,11 @@ export const orderSheetSlice = createSlice({
     // renewalIds: (state, action: PayloadAction<ortderSheetState['ids']>) => {
     //   state.ids = action.payload;
     // },
-    // renewalColumns: (state, action: PayloadAction<ortderSheetState['columns']>) => {
-    //   state.columns = action.payload;
-    // },
+    renewalColumns: (state, action: PayloadAction<ortderSheetState['columns']>) => {
+      state.columns = action.payload;
+    },
   },
 });
+export const { renewalColumns } = orderSheetSlice.actions;
+
+export default orderSheetSlice.reducer;
