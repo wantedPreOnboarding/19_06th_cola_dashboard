@@ -1,27 +1,14 @@
-import 'styled-components';
+import { Theme } from '@mui/material/styles';
 
-declare module 'styled-components' {
-  export interface DefaultTheme {
-    colors: {
-      blue: string;
-      lightBlue: string;
-      sky: string;
-      white: string;
-      black: string;
-      gray: string;
-      red: string;
-      lightGray: string;
-      red: string;
-      lightRed: string;
-    };
-    fontSize: {
-      s: string;
-      m: string;
-      l: string;
-    };
-    fontWeight: {
-      semiStrong: number;
-      strong: number;
+declare module '@mui/material/styles' {
+  interface CustomTheme extends Theme {
+    primary: {
+      main: '#1157C9';
+      light: '#E7EEFA';
+      xlight: '#F5F9FF';
+      contrastText: '#fff';
     };
   }
+
+  export function createTheme(options?: CustomThemeOptions): CustomTheme;
 }

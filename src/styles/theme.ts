@@ -1,26 +1,61 @@
-import { DefaultTheme } from 'styled-components';
+import { createTheme } from '@mui/material/styles';
 
-const theme: DefaultTheme = {
-  colors: {
-    blue: '#1157C9',
-    lightBlue: '#6690D5',
-    sky: '#E7EEFA',
-    white: '#FFF',
-    black: '#252525',
-    gray: '#727272',
-    lightGray: '#f2f2f2',
-    red: '#D30000',
-    lightRed: '#E4CFCF',
+const theme = createTheme({
+  breakpoints: {
+    keys: ['md', 'lg'],
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 1024,
+      lg: 1280,
+      xl: 1440,
+    },
   },
-  fontSize: {
-    s: '12px',
-    m: '14px',
-    l: '16px',
+  palette: {
+    primary: {
+      main: '#1157C9',
+      light: '#6690D5',
+      xlight: '#E7EEFA',
+      contrastText: '#fff',
+    },
+    text: {
+      primary: '#252525',
+    },
+    grey: {
+      '50': '#f2f2f2',
+      '600': '#727272',
+      '900': '#252525',
+    },
+    error: {
+      main: '#D30000',
+      light: '#E4CFCF',
+    },
+    info: {
+      main: '#6690D5',
+    },
   },
-  fontWeight: {
-    semiStrong: 500,
-    strong: 800,
+  typography: {
+    h1: {
+      fontSize: '1.5rem',
+      fontWeight: 700,
+    },
+    h2: {
+      fontSize: '1.25rem',
+      fontWeight: 700,
+    },
+    body1: {
+      fontSize: '0.875rem',
+      fontWeight: 400,
+    },
+    subtitle1: {
+      fontSize: '0.875rem',
+      fontWeight: 700,
+    },
+    subtitle2: {
+      fontSize: '1rem',
+      fontWeight: 400,
+    },
   },
-};
+});
 
 export { theme };
