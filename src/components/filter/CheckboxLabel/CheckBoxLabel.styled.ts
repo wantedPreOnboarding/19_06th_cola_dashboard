@@ -6,5 +6,6 @@ export const StyledFormGroup = styled(FormGroup)(
     width: 250px;
     height: 40px;
     margin:auto;
+    
   `,
 );

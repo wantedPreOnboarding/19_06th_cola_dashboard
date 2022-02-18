@@ -5,6 +5,7 @@ export const WrapperBox = styled(Box)(
   ({ theme }) => `
     margin-top:5px;
     border: 2px solid ${theme.palette.primary.main};
+    background:white;
     border-radius:5px;
     height:300px;
     overflow-y:auto;
