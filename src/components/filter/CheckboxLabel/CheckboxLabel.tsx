@@ -2,15 +2,31 @@ import * as React from 'react';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import * as M from './CheckBoxLabel.styled';
-
-const CheckboxLabel = ({ filterKey }: { filterKey: string }) => {
+import { CheckBoxLabelProps } from './CheckBoxLabel.type';
+import { pink } from '@mui/material/colors';
+const CheckboxLabel = ({ filterKey, checked, changeHandler }: CheckBoxLabelProps) => {
   return (
     <M.StyledFormGroup>
       <FormControlLabel
         sx={{
           height: '20px',
         }}
-        control={<Checkbox id={filterKey} checked />}
+        control={
+          <Checkbox
+            id={filterKey}
+            checked={checked}
+            sx={{
+              color: '#1157C9',
+              '&.Mui-checked': {
+                color: '#1157C9',
+              },
+            }}
+            onChange={e => {
+              const checked = e.target.checked;
+              changeHandler(checked, filterKey);
+            }}
+          />
+        }
         label={filterKey}
       />
     </M.StyledFormGroup>
