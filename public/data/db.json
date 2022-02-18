@@ -2,7 +2,7 @@
   {
     "source": "엑셀",
     "outgoingFileName": "출고관리01",
-    "id ": 1,
+    "id": 1,
     "movementType": "주문취소",
     "orderSheetType": "일반온라인판매",
     "orderId": 10000000001,
