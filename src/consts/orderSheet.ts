@@ -27,5 +27,5 @@ export const ORDER_SHEET_KEY_MAP = {
   receiverAddress1: '수취인주소1',
   receiverAddress2: '수취인주소2',
   memo: '메모',
-  courier명: '택배사명',
+  courier: '택배사명',
 };
