@@ -5,5 +5,7 @@ export default interface OrderSheetRowProps {
   order: Order;
   hover?: boolean;
   isHeader?: boolean;
-  onClickHandler?: () => void;
+  stickyTop?: number;
+  sx?: { [key: string]: string };
+  onClickHandler?: (orderId?: number) => void;
 }
