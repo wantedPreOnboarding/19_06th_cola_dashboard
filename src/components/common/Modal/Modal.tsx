@@ -2,10 +2,7 @@ import React, { ReactElement, useState } from 'react';
 import { Modal as MUIModal, Button } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { useGetOrderSheetQuery } from 'redux/services/orderSheet';
-// NextIcon
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import * as M from './Modal.styled';
-
 
 const Modal = (): ReactElement => {
   const { data } = useGetOrderSheetQuery(null);
@@ -14,10 +11,7 @@ const Modal = (): ReactElement => {
   const item = data?.[count];
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  // NextItem => 28번째줄 변경
-  const hadleCountNext = () => {
-    setCount(count + 1);
-  }
+
   return (
     <>
       <Button onClick={handleOpen}>BUTTON</Button>
@@ -25,7 +19,9 @@ const Modal = (): ReactElement => {
         <M.Wrapper>
           <M.Header>
             <M.Title>데이터 출처</M.Title>
-            <Button onClick={handleClose} ><CloseIcon /></Button>
+            <Button onClick={handleClose}>
+              <CloseIcon />
+            </Button>
           </M.Header>
           <M.Item>
             <M.Box>
@@ -111,6 +107,6 @@ const Modal = (): ReactElement => {
       </MUIModal>
     </>
   );
-}
+};
 
 export default Modal;
