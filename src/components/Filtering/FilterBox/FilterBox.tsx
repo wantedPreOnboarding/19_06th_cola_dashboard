@@ -11,10 +11,13 @@ const FilterBox = () => {
   };
 
   return (
-    <M.StyledBox>
-      <FilterBar filterBarHandler={filterBarHandler} />
-      {clickedBar && <FilterCheckBoxs />}
-    </M.StyledBox>
+    <>
+      {clickedBar && <M.Overlay onClick={filterBarHandler} />}
+      <M.StyledBox>
+        <FilterBar filterBarHandler={filterBarHandler} />
+        {clickedBar && <FilterCheckBoxs />}
+      </M.StyledBox>
+    </>
   );
 };
 
