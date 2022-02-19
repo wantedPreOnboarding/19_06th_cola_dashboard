@@ -1,8 +1,8 @@
 import { styled, TableCell, TableContainer } from '@mui/material';
 
 export const MUIContainer = styled(TableContainer)`
-  /* height: calc(100vh - 64px); */
-  overflow: visible;
+  height: calc(100vh - 154px);
+  overflow: auto;
   white-space: nowrap;
   hr {
     width: 2px;

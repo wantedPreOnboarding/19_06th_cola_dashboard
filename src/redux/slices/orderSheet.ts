@@ -8,11 +8,11 @@ export interface orderSheetState {
 
 const initialState: orderSheetState = {
   ids: [], //현재 테이블에서 보여줄 엑셀 행들
-  columns: Object.values(ORDER_SHEET_KEY_MAP), // 현재 테이블에서 보여줘야할 컬럼들
+  columns: Object.keys(ORDER_SHEET_KEY_MAP), // 현재 테이블에서 보여줘야할 컬럼들
 };
 
 export const orderSheetSlice = createSlice({
-  name: 'counter',
+  name: 'orderSheet',
   initialState,
   reducers: {
     renewalIds: (state, action: PayloadAction<orderSheetState['ids']>) => {

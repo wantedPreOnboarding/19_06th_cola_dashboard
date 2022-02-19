@@ -4,6 +4,7 @@ import { GlobalStyles } from '@mui/material';
 const MUIGlobalStyles = (): ReactElement => (
   <GlobalStyles
     styles={{
+      body: { overflow: 'hidden' },
       ol: { listStyle: 'none' },
       ul: { listStyle: 'none' },
       li: { listStyle: 'none' },
