@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
-import FloatingBtn from '../FloatingBtn/FloatingBtn';
+import FilterBar from '../FilterBar/FilterBar';
+import * as M from './FilterBox.styled';
 import FilterCheckBoxs from '../FilterCheckBoxs/FilterCheckBoxs';
-import * as M from './FloatFilterBox.styled';
-const FloatFilterBox = () => {
+const FilterBox = () => {
   const [clickedBar, setClickedBar] = useState(false);
+
   const filterBarHandler = () => {
     setClickedBar(!clickedBar);
   };
+
   return (
     <M.StyledBox>
-      <FloatingBtn filterBarHandler={filterBarHandler} />
+      <FilterBar filterBarHandler={filterBarHandler} />
       {clickedBar && <FilterCheckBoxs />}
     </M.StyledBox>
   );
 };
 
-export default FloatFilterBox;
+export default FilterBox;

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useGetOrderSheetQuery } from 'redux/services/orderSheet';
-import { OrderSheet } from 'components';
+import { FloatFilterBox } from 'components/Filtering';
+import MenuBox from 'components/MenuBox/MenuBox';
+import OrderSheet from 'components/OrderSheet/OrderSheet';
 
 const Dashboard = () => {
   const { data, error, isLoading } = useGetOrderSheetQuery(null);
@@ -13,7 +15,13 @@ const Dashboard = () => {
   }
 
   if (data) {
-    return <OrderSheet orderSheet={data} />;
+    return (
+      <>
+        <MenuBox />
+        <FloatFilterBox />
+        <OrderSheet orderSheet={data} />;
+      </>
+    );
   }
 
   return null;
