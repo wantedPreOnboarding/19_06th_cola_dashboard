@@ -15,14 +15,14 @@ export const orderSheetSlice = createSlice({
   name: 'orderSheet',
   initialState,
   reducers: {
-    // renewalIds: (state, action: PayloadAction<ortderSheetState['ids']>) => {
-    //   state.ids = action.payload;
-    // },
+    renewalIds: (state, action: PayloadAction<orderSheetState['ids']>) => {
+      state.ids = action.payload;
+    },
     renewalColumns: (state, action: PayloadAction<orderSheetState['columns']>) => {
       state.columns = action.payload;
     },
   },
 });
-export const { renewalColumns } = orderSheetSlice.actions;
+export const { renewalColumns, renewalIds } = orderSheetSlice.actions;
 
 export default orderSheetSlice.reducer;
