@@ -75,7 +75,6 @@ const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
             <TableBody>
               {filteredOrderSheet.map((order, index) => {
                 const displayedOrder = makeDisplayedColumns(order);
-                console.log(order.fakeId);
                 return (
                   <OrderSheetRow
                     key={index}
