@@ -8,4 +8,5 @@ export const StyledBox = styled(Box)`
   position: fixed;
   bottom: 450px;
   right: 30px;
+  z-index: 1000;
 `;

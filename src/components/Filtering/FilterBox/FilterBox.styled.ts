@@ -6,4 +6,5 @@ export const StyledBox = styled(Box)`
   height: auto;
   background-color: white;
   position: relative;
+  z-index: 1000;
 `;
