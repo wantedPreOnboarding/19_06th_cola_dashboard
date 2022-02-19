@@ -5,7 +5,6 @@ export const StyledFormGroup = styled(FormGroup)(
     padding: ${theme.spacing(1)} ${theme.spacing(2)};
     width: 250px;
     height: 40px;
-    margin:auto;
-    
+    margin:auto;  
   `,
 );

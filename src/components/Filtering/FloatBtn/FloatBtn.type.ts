@@ -1,3 +1,3 @@
-export type FloatingBtnProps = {
+export type FloatBtnProps = {
   filterBarHandler: React.MouseEventHandler<HTMLButtonElement>;
 };

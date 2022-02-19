@@ -3,7 +3,6 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import * as M from './CheckBoxLabel.styled';
 import { CheckBoxLabelProps } from './CheckBoxLabel.type';
-import { pink } from '@mui/material/colors';
 const CheckboxLabel = ({ filterKey, checked, changeHandler }: CheckBoxLabelProps) => {
   return (
     <M.StyledFormGroup>

@@ -3,14 +3,16 @@ import Box from '@mui/material/Box';
 
 export const WrapperBox = styled(Box)(
   ({ theme }) => `
-    margin-top:5px;
+    margin-top:10px;
     border: 2px solid ${theme.palette.primary.main};
     background:white;
     border-radius:5px;
+    width:250px;
     height:300px;
     overflow-y:auto;
     overflow-x:hidden;
-    padding:10px 
+    padding: 15px 10px 10px 10px;
     box-sizing:border-box;
+    position:absolute;
     `,
 );

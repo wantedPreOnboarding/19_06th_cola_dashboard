@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Dashboard } from 'pages';
 import { Header } from 'components/common';
-import { FilterBox, FloatFilterBox } from 'components/filter';
 
 const App = () => {
   return (
     <div className="App">
       <Header />
-      <FilterBox />
       <Dashboard />
-      <FloatFilterBox />
     </div>
   );
 };

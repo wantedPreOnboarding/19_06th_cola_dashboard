@@ -5,7 +5,5 @@ export const StyledBox = styled(Box)`
   width: 250px;
   height: auto;
   background-color: white;
-  position: absolute;
-  top: 80px;
-  right: 50px;
+  position: relative;
 `;
