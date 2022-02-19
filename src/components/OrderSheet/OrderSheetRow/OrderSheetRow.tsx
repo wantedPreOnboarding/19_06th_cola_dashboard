@@ -23,7 +23,7 @@ const OrderSheetRow = ({
       onClick={() => (isHeader ? onClickHandler?.() : onClickHandler?.(order.orderId))}
     >
       <TableCell component={isHeader ? 'th' : undefined} scope="row" align="center">
-        <Checkbox />
+        <Checkbox checked={order.isFixed} />
       </TableCell>
       {(isHeader ? Object.keys(order) : Object.values(order)).map((value, index) => (
         <TableCell component={isHeader ? 'th' : undefined} scope="row" key={index}>
@@ -36,4 +36,5 @@ const OrderSheetRow = ({
     </M.MUITableRow>
   );
 };
+
 export default React.memo(OrderSheetRow);
