@@ -40,7 +40,7 @@ const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
       {orderSheet && (
         <M.MUIContainer>
           <Table
-            sx={{ position: 'relative' }}
+            sx={{ position: 'relative', borderCollapse: 'initial' }}
             padding="none"
             size="small"
             aria-label="a dense table"
@@ -55,7 +55,7 @@ const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
                 onClickHandler={updateEveryRowsFix}
               />
             </TableHead>
-            <TableBody sx={{ borderCollapse: 'initial' }}>
+            <TableBody>
               {hasFixStatusRows.map((order, index) => (
                 <OrderSheetRow
                   key={index}
