@@ -15,7 +15,7 @@ const OrderSheetRow = ({
   onClickHandler,
 }: MUProps<OrderSheetRowProps>): ReactElement => {
   return (
-    <TableRow
+    <M.MUITableRow
       hover={hover}
       {...(stickyTop !== undefined && {
         sx: { position: 'sticky', zIndex: 1, top: stickyTop, ...sx },
@@ -27,13 +27,13 @@ const OrderSheetRow = ({
       </TableCell>
       {(isHeader ? Object.keys(order) : Object.values(order)).map((value, index) => (
         <TableCell component={isHeader ? 'th' : undefined} scope="row" key={index}>
-          <M.TableCellInnerContainer>
+          <M.MUITableCellInnerContainer>
             <Divider orientation="vertical" flexItem />
             <span>{isHeader ? ORDER_SHEET_KEY_MAP[value as keyof typeof order] : value}</span>
-          </M.TableCellInnerContainer>
+          </M.MUITableCellInnerContainer>
         </TableCell>
       ))}
-    </TableRow>
+    </M.MUITableRow>
   );
 };
 export default React.memo(OrderSheetRow);
