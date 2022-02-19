@@ -5,7 +5,7 @@ import * as M from './OrderSheet.styled';
 import { FilteredOrder, OrderSheetProps } from './OrderSheet.type';
 import { useAppSelector } from 'hooks';
 import { Order } from 'redux/services/orderSheet.type';
-
+import MenuBox from 'components/MenuBox/MenuBox';
 const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
   const selectedColumns = useAppSelector(state => state.orderSheet.columns);
 
@@ -57,6 +57,7 @@ const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
     <>
       {orderSheet && (
         <M.MUIContainer>
+          <MenuBox />
           <Table
             sx={{ position: 'relative', borderCollapse: 'initial' }}
             padding="none"

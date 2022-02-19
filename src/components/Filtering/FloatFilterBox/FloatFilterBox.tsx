@@ -8,10 +8,13 @@ const FloatFilterBox = () => {
     setClickedBar(!clickedBar);
   };
   return (
-    <M.StyledBox>
-      {clickedBar && <FilterCheckBoxs />}
-      <FloatingBtn filterBarHandler={filterBarHandler} />
-    </M.StyledBox>
+    <>
+      {clickedBar && <M.Overlay onClick={filterBarHandler} />}
+      <M.StyledBox>
+        {clickedBar && <FilterCheckBoxs />}
+        <FloatingBtn filterBarHandler={filterBarHandler} />
+      </M.StyledBox>
+    </>
   );
 };
 

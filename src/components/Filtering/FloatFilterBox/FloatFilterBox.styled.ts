@@ -8,4 +8,14 @@ export const StyledBox = styled(Box)`
   position: fixed;
   bottom: 450px;
   right: 30px;
+  z-index: 1000;
+`;
+
+export const Overlay = styled(Box)`
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
 `;

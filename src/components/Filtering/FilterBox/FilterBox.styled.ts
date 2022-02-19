@@ -6,4 +6,13 @@ export const StyledBox = styled(Box)`
   height: auto;
   background-color: white;
   position: relative;
+  z-index: 1000;
+`;
+export const Overlay = styled(Box)`
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
 `;
