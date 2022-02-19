@@ -4,7 +4,7 @@ import { Header } from 'components/common';
 
 const App = () => {
   return (
-    <div className="App" style={{ width: 'fit-content' }}>
+    <div className="App">
       <Header />
       <Dashboard />
     </div>
