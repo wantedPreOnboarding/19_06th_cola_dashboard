@@ -4,7 +4,7 @@ export const ORDER_SHEET_KEY_MAP = {
   id: '엑셀 행 순번',
   movementType: '이동 상태',
   orderSheetType: '주문서 양식',
-  orderId: '주무서 번호',
+  orderId: '주문서 번호',
   relativerProductId: '연동상품ID',
   orderName: '주문명',
   outgoingProductName: '출고상품명',
