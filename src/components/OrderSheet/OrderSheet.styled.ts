@@ -1,27 +1,23 @@
-import {
-  Paper,
-  styled,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from '@mui/material';
+import { styled, TableCell, TableContainer } from '@mui/material';
 
 export const MUIContainer = styled(TableContainer)`
-  height: calc(100vh - 64px);
-  overflow: auto;
+  /* height: calc(100vh - 64px); */
+  overflow: visible;
   white-space: nowrap;
   hr {
     width: 2px;
     display: inline-block;
     margin: 0 0.5rem;
-    min-height: 20px;
+    min-height: 24px;
   }
 
-  tr > *:nth-child(2) hr {
-    margin-left: 0;
+  tr {
+    th,
+    td {
+      &:nth-of-type(2) hr {
+        margin-left: 0;
+      }
+    }
   }
 `;
 
