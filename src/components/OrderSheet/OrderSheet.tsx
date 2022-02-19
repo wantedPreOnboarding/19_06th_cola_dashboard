@@ -1,18 +1,8 @@
 import React, { ReactElement } from 'react';
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import { OrderSheetProps } from './OrderSheet.type';
 import { Order } from 'redux/services/orderSheet.type';
 import { ORDER_SHEET_KEY_MAP } from 'consts/orderSheet';
-import {
-  Checkbox,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from '@mui/material';
+import { Checkbox, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 
 import * as M from './OrderSheet.styled';
 

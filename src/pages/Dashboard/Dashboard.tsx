@@ -11,10 +11,12 @@ const Dashboard = (): ReactElement => {
       {error ? (
         <>Oh no, there was an error</>
       ) : (
-        <OrderSheet orderSheet={data} isLoading={isLoading} />
+        <>
+          <MenuBox />
+          <FloatFilterBox />
+          <OrderSheet orderSheet={data} isLoading={isLoading} />
+        </>
       )}
-      <MenuBox />
-      <FloatFilterBox />
     </div>
   );
 };
