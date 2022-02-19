@@ -1,51 +1,32 @@
 import React, { ReactElement, useState } from 'react';
-import { Modal as MUIModal, Button, Box } from '@mui/material';
+import { Modal as MUIModal, Button } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import { useGetOrderSheetQuery } from 'redux/services/orderSheet';
+// NextIcon
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import * as M from './Modal.styled';
-
-// 1. 데이터 출처
-// 2. 출고자파일명
-// 3. 이동상태
-// 4, 주문서 양식
-// 5. 주문번호
-// 6. 연동상품ID
-// 7. 주문명
-// 8. 출고 상품명
-// 9. 출고 상품코드
-// 10. 출고 상품
-// 11. 주문수량
-// 12. 주문단위
-// 13. 출고수량
-// 14. 출고 창고명
-// 15. 재고부족여부
-// 16. 수량변경
-// 17. 출고 취소 상품
-// 18. 주문정보 ID
-// 19. 주문자
-// 20. 주문자 전화번호
-// 21. 수취인
-// 22. 수취인 전화번호
-// 23. 수취인전화번호2
-// 24. 수취인 주소 1
-// 25. 수취인 주소 2
-// 26. 메모
-// 27. 택배사명
 
 
 const Modal = (): ReactElement => {
   const { data } = useGetOrderSheetQuery(null);
-  const item = data?.[4]
   const [open, setOpen] = useState(false);
+  const [count, setCount] = useState(0);
+  const item = data?.[count];
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  console.log(item);
-  // 행 - 한줄 , col - 열
+  // NextItem => 28번째줄 변경
+  const hadleCountNext = () => {
+    setCount(count + 1);
+  }
   return (
     <>
       <Button onClick={handleOpen}>BUTTON</Button>
       <MUIModal open={open} onClose={handleClose}>
         <M.Wrapper>
-          <M.Title>데이터 출처</M.Title>
+          <M.Header>
+            <M.Title>데이터 출처</M.Title>
+            <Button onClick={handleClose} ><CloseIcon /></Button>
+          </M.Header>
           <M.Item>
             <M.Box>
               <M.Name>데이터 출처</M.Name>
