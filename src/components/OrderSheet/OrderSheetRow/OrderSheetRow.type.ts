@@ -1,8 +1,7 @@
-import { Order } from 'redux/services/orderSheet.type';
+import { FilteredOrder } from '../OrderSheet.type';
 
 export default interface OrderSheetRowProps {
-  orderName: string;
-  order: Order;
+  order: FilteredOrder;
   hover?: boolean;
   isHeader?: boolean;
   stickyTop?: number;
