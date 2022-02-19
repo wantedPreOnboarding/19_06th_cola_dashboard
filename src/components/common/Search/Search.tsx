@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import SearchProps from './Search.prop';
+import SearchProps from './Search.type';
 import { filterSearch } from 'utils';
 import { useDebounce } from 'hooks/useDebounce';
 import Box from '@mui/material/Box';
