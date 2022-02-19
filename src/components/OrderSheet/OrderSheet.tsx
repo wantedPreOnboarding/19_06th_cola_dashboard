@@ -16,7 +16,7 @@ const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
 
   const filteredOrderSheet = hasFixStatusRows.map(row =>
     selectedColumns.reduce((acc, cur) => ({ ...acc, [cur]: row[cur as keyof Order] }), {
-      fakeId: row.id,
+      fakeId: row.orderId,
       isFixed: row.isFixed,
     }),
   ) as FilteredOrder[];
@@ -75,7 +75,7 @@ const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
             <TableBody>
               {filteredOrderSheet.map((order, index) => {
                 const displayedOrder = makeDisplayedColumns(order);
-
+                console.log(order.fakeId);
                 return (
                   <OrderSheetRow
                     key={index}
