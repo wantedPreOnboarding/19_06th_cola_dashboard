@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Dashboard } from 'pages';
 import { Header } from 'components/common';
 
-const App = () => (
-  <div className="App">
-    <Header />
-  </div>
-);
+const App = () => {
+  return (
+    <div className="App">
+      <Header />
+      <Dashboard />
+    </div>
+  );
+};
 export default App;
