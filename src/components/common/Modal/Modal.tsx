@@ -21,7 +21,6 @@ const Modal = (): ReactElement => {
 
   return (
     <>
-      <Button onClick={handleOpen}>BUTTON</Button>
       <MUIModal open={modalState.isOpen} onClose={handleClose}>
         <M.Wrapper>
           <M.Header>
