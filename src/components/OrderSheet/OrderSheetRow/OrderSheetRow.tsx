@@ -27,8 +27,10 @@ const OrderSheetRow = ({
   );
 
   const updateModalState = (id?: number) => {
-    id && dispatch(renewalModalId(id - 1));
-    dispatch(renewalOpenState(true));
+    if (!isHeader) {
+      id && dispatch(renewalModalId(id - 1));
+      dispatch(renewalOpenState(true));
+    }
   };
 
   const modalHandler = (event: React.MouseEvent<HTMLElement>) => {
@@ -46,7 +48,13 @@ const OrderSheetRow = ({
     <M.MUITableRow
       hover={hover}
       {...(stickyTop !== undefined && {
-        sx: { position: 'sticky', zIndex: 1, top: stickyTop, ...sx },
+        sx: {
+          position: 'sticky',
+          zIndex: 1,
+          top: stickyTop,
+          cursor: !isHeader ? 'pointer' : 'default',
+          ...sx,
+        },
       })}
       onClick={modalHandler}
     >
