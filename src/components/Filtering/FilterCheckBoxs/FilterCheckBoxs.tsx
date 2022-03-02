@@ -13,13 +13,20 @@ const FilterCheckBoxs = () => {
   const filters = useAppSelector(state => state.orderSheet.columns);
   //기초값
   const filterValues = Object.values(ORDER_SHEET_KEY_MAP);
-  //검색이랑 연결된값
+  const newValue=Object.entries(ORDER_SHEET_KEY_MAP)
+
+  const findKey=(value:string)=>{
+    const idx=newValue.findIndex(val=>val[1]===value)
+    return newValue[idx][0]
+  }
+
+//검색이랑 연결된값
   const [linkedValue, setLinkedValue] = useState<string[]>(filterValues);
 
-  const changeHandler = (checked: boolean, filterkey: string) => {
+  const changeHandler = (checked: boolean, filterValue: string) => {
     checked
-      ? dispatch(renewalColumns([...filters, filterkey]))
-      : dispatch(renewalColumns(filters.filter(filter => filter !== filterkey)));
+      ? dispatch(renewalColumns([...filters, findKey(filterValue)]))
+      : dispatch(renewalColumns(filters.filter(filter => filter !== findKey(filterValue))));
   };
 
   const updateSearch = (updateResult: result[]): void => {
@@ -30,11 +37,11 @@ const FilterCheckBoxs = () => {
     <M.WrapperBox>
       <Search data={filterValues} updateResult={updateSearch} />
       {ORDER_SHEET_KEY_MAP &&
-        linkedValue.map(filterKey => (
+        linkedValue.map(filterValue => (
           <CheckboxLabel
-            key={filterKey}
-            filterKey={filterKey}
-            checked={filters.includes(filterKey) ? true : false}
+            key={filterValue}
+            filterValue={filterValue}
+            checked={filters.includes(findKey(filterValue)) ? true : false}
             changeHandler={changeHandler}
           />
         ))}

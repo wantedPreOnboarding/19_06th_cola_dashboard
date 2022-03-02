@@ -3,7 +3,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import * as M from './CheckBoxLabel.styled';
 import { CheckBoxLabelProps } from './CheckBoxLabel.type';
-const CheckboxLabel = ({ filterKey, checked, changeHandler }: CheckBoxLabelProps) => {
+const CheckboxLabel = ({ filterValue, checked, changeHandler }: CheckBoxLabelProps) => {
   return (
     <M.StyledFormGroup>
       <FormControlLabel
@@ -12,7 +12,7 @@ const CheckboxLabel = ({ filterKey, checked, changeHandler }: CheckBoxLabelProps
         }}
         control={
           <Checkbox
-            id={filterKey}
+            id={filterValue}
             checked={checked}
             sx={{
               color: '#1157C9',
@@ -22,11 +22,11 @@ const CheckboxLabel = ({ filterKey, checked, changeHandler }: CheckBoxLabelProps
             }}
             onChange={e => {
               const checked = e.target.checked;
-              changeHandler(checked, filterKey);
+              changeHandler(checked, filterValue);
             }}
           />
         }
-        label={filterKey}
+        label={filterValue}
       />
     </M.StyledFormGroup>
   );
