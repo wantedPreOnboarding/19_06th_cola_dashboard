@@ -27,8 +27,10 @@ const OrderSheetRow = ({
   );
 
   const updateModalState = (id?: number) => {
-    id && dispatch(renewalModalId(id - 1));
-    dispatch(renewalOpenState(true));
+    if (!isHeader) {
+      id && dispatch(renewalModalId(id - 1));
+      dispatch(renewalOpenState(true));
+    }
   };
 
   const modalHandler = (event: React.MouseEvent<HTMLElement>) => {
@@ -47,6 +49,9 @@ const OrderSheetRow = ({
       hover={hover}
       {...(stickyTop !== undefined && {
         sx: { position: 'sticky', zIndex: 1, top: stickyTop, ...sx },
+      })}
+      {...(isHeader && {
+        sx: { cursor: 'default', ...sx },
       })}
       onClick={modalHandler}
     >
