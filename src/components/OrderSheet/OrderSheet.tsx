@@ -4,17 +4,13 @@ import OrderSheetRow from './OrderSheetRow/OrderSheetRow';
 import MenuBox from 'components/MenuBox/MenuBox';
 //redux
 import { useAppSelector } from 'hooks';
-import { useDispatch } from 'react-redux';
 import { Order } from 'redux/services/orderSheet.type';
-import { renewalModalId, renewalOpenState } from 'redux/slices/modal';
 //style
 import { Table, TableHead, TableBody } from '@mui/material';
 import * as M from './OrderSheet.styled';
 import { FixedOrderSheet, OrderSheetProps } from './OrderSheet.type';
 
 const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
-  const dispatch = useDispatch();
-
   const selectedColumns = useAppSelector(state => state.orderSheet.columns) as (keyof Order)[];
 
   const initialFixedRows = orderSheet.map(row => ({ ...row, isFixed: false }));
@@ -22,11 +18,6 @@ const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
   const [isFixedAllRows, setIsFixedAllRows] = useState<boolean>(false);
 
   const [hasFixStatusRows, setFixedRows] = React.useState<FixedOrderSheet>(initialFixedRows);
-
-  const updateModalState = (id?: number) => {
-    id && dispatch(renewalModalId(id - 1));
-    dispatch(renewalOpenState(true));
-  };
 
   const updateRowFix = useCallback(
     (rowId?: number) => {
@@ -86,7 +77,6 @@ const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
                     hover
                     columns={selectedColumns}
                     onClickHandler={updateRowFix}
-                    modalHandler={updateModalState}
                   />
                 );
               })}
