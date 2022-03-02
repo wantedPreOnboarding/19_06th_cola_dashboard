@@ -9,7 +9,18 @@ export interface orderSheetState {
 
 const initialState: orderSheetState = {
   ids: [], //현재 테이블에서 보여줄 엑셀 행들
-  columns : Object.keys(ORDER_SHEET_KEY_MAP) as (keyof Order)[], // 현재 테이블에서 보여줘야할 컬럼들
+  columns: (Object.keys(ORDER_SHEET_KEY_MAP) as (keyof Order)[]).filter(
+    key =>
+      key !== 'id' &&
+      key !== 'source' &&
+      key !== 'outgoingFileName' &&
+      key !== 'orderSheetType' &&
+      key !== 'relativerProductId' &&
+      key !== 'changeCount' &&
+      key !== 'outgoingProductCancel' &&
+      key !== 'outgoingOrderCancled' &&
+      key !== 'orderInfoId',
+  ), // 현재 테이블에서 보여줘야할 컬럼들
 };
 
 export const orderSheetSlice = createSlice({
