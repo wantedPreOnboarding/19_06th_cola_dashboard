@@ -1,12 +1,19 @@
 import React, { ReactElement, useCallback, useState } from 'react';
+//component
 import OrderSheetRow from './OrderSheetRow/OrderSheetRow';
+import MenuBox from 'components/MenuBox/MenuBox';
+//redux
+import { useAppSelector } from 'hooks';
+import { useDispatch } from 'react-redux';
+import { Order } from 'redux/services/orderSheet.type';
+import { renewalModalId, renewalOpenState } from 'redux/slices/modal';
+//style
 import { Table, TableHead, TableBody } from '@mui/material';
 import * as M from './OrderSheet.styled';
 import { FilteredOrder, OrderSheetProps } from './OrderSheet.type';
-import { useAppSelector } from 'hooks';
-import { Order } from 'redux/services/orderSheet.type';
-import MenuBox from 'components/MenuBox/MenuBox';
+
 const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
+  const dispatch = useDispatch();
   const selectedColumns = useAppSelector(state => state.orderSheet.columns);
 
   const initialFixedRows = orderSheet.map(row => ({ ...row, isFixed: false }));
@@ -22,8 +29,9 @@ const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
     }),
   ) as FilteredOrder[];
 
-  const updateModalState = (rowId?: number) => {
-    rowId && setCurrentModalId(rowId);
+  const updateModalState = (id?: number) => {
+    id && dispatch(renewalModalId(id - 1));
+    dispatch(renewalOpenState(true));
   };
 
   const updateRowFix = (rowId?: number) => {
