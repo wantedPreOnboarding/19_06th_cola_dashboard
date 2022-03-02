@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SearchProps from './Search.type';
 import { filterSearch } from 'utils';
 import { useDebounce } from 'hooks/useDebounce';
-import { Box, IconButton, FormControl, TextField } from '@mui/material';
+import { IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import * as M from './Search.style';
 
@@ -22,13 +22,13 @@ const Search = ({ datas, updateResult }: SearchProps) => {
     setSearchAreaValue(event.target.value);
   };
 
-  const SubmitHandler = (event: any) => {
-    event.preventDefault();
+  const SubmitHandler = (event: React.FormEvent<HTMLDivElement> | undefined ) => {
+    event&&event.preventDefault();
     submitResult();
   };
 
   return (
-    <M.FormWrapper component="form" onSubmit={SubmitHandler}>
+    <M.FormWrapper component="form" onSubmit={(event)=>SubmitHandler(event)}>
       <M.SearchBar autoFocus onChange={searchAreaChange}></M.SearchBar>
       <IconButton sx={{ p: '10px' }} aria-label="search">
         <SearchIcon sx={{ color: '#1157C9' }} />
