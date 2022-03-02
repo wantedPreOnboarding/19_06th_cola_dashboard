@@ -1,10 +1,15 @@
 import React, { ReactElement } from 'react';
-import { Checkbox, Divider, TableCell } from '@mui/material';
-import * as M from './OrderSheetRow.styled';
-import { MUProps } from 'types/props';
+//Redux
+import { useDispatch } from 'react-redux';
+import { renewalModalId, renewalOpenState } from 'redux/slices/modal';
+//Type
 import { ORDER_SHEET_KEY_MAP } from 'consts/orderSheet';
 import OrderSheetRowProps from './OrderSheetRow.type';
 import { Order } from 'redux/services/orderSheet.type';
+//Style
+import { Checkbox, Divider, TableCell } from '@mui/material';
+import * as M from './OrderSheetRow.styled';
+import { MUProps } from 'types/props';
 
 const OrderSheetRow = ({
   order,
@@ -15,9 +20,27 @@ const OrderSheetRow = ({
   sx,
   onClickHandler,
 }: MUProps<OrderSheetRowProps>): ReactElement => {
+  const dispatch = useDispatch();
+
   const filteredOrder = Object.entries(order).filter(([key]: (keyof Order)[]) =>
     (columns as string[]).includes(key),
   );
+
+  const updateModalState = (id?: number) => {
+    id && dispatch(renewalModalId(id - 1));
+    dispatch(renewalOpenState(true));
+  };
+
+  const modalHandler = (event: React.MouseEvent<HTMLElement>) => {
+    if (event.target instanceof HTMLElement) {
+      const { nodeName } = event.target;
+      nodeName === 'INPUT'
+        ? isHeader
+          ? onClickHandler?.()
+          : onClickHandler?.(order.orderId)
+        : updateModalState?.(order.id);
+    }
+  };
 
   return (
     <M.MUITableRow
@@ -25,7 +48,7 @@ const OrderSheetRow = ({
       {...(stickyTop !== undefined && {
         sx: { position: 'sticky', zIndex: 1, top: stickyTop, ...sx },
       })}
-      onClick={() => (isHeader ? onClickHandler?.() : onClickHandler?.(order.orderId))}
+      onClick={modalHandler}
     >
       <MemoTableCheckBox isHeader={isHeader} isChecked={!!stickyTop} />
 

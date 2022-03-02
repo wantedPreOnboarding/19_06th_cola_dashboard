@@ -1,11 +1,14 @@
 import React, { ReactElement, useCallback, useState } from 'react';
+//component
 import OrderSheetRow from './OrderSheetRow/OrderSheetRow';
+import MenuBox from 'components/MenuBox/MenuBox';
+//redux
+import { useAppSelector } from 'hooks';
+import { Order } from 'redux/services/orderSheet.type';
+//style
 import { Table, TableHead, TableBody } from '@mui/material';
 import * as M from './OrderSheet.styled';
 import { FixedOrderSheet, OrderSheetProps } from './OrderSheet.type';
-import MenuBox from 'components/MenuBox/MenuBox';
-import { useAppSelector } from 'hooks';
-import { Order } from 'redux/services/orderSheet.type';
 
 const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
   const selectedColumns = useAppSelector(state => state.orderSheet.columns) as (keyof Order)[];

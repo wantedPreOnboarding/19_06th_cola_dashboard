@@ -8,4 +8,5 @@ export default interface OrderSheetRowProps {
   stickyTop?: number;
   sx?: { [key: string]: string };
   onClickHandler?: (orderId?: number) => void;
+  modalHandler?: (orderId?: number) => void;
 }
