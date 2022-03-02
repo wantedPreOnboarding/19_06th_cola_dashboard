@@ -21,7 +21,7 @@ const OrderSheetRow = ({
       {...(stickyTop !== undefined && {
         sx: { position: 'sticky', zIndex: 1, top: stickyTop, ...sx },
       })}
-      onClick={() => modalHandler?.(order.orderId)}
+      onClick={() => modalHandler?.(order.id)}
     >
       <TableCell component={isHeader ? 'th' : undefined} scope="row" align="center">
         <Checkbox
