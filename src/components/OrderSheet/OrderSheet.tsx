@@ -13,6 +13,7 @@ const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
 
   const [isFixedAllRows, setIsFixedAllRows] = useState<boolean>(false);
   const [hasFixStatusRows, setFixedRows] = React.useState(initialFixedRows);
+  const [currentModalId, setCurrentModalId] = useState<number>(0);
 
   const filteredOrderSheet = hasFixStatusRows.map(row =>
     selectedColumns.reduce((acc, cur) => ({ ...acc, [cur]: row[cur as keyof Order] }), {
@@ -20,6 +21,10 @@ const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
       isFixed: row.isFixed,
     }),
   ) as FilteredOrder[];
+
+  const updateModalState = (rowId?: number) => {
+    rowId && setCurrentModalId(rowId);
+  };
 
   const updateRowFix = (rowId?: number) => {
     setFixedRows(
@@ -83,6 +88,7 @@ const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
                     stickyTop={order.isFixed ? getIndexOfFixedRows(order.fakeId) * 43 : undefined}
                     hover
                     onClickHandler={updateRowFix}
+                    modalHandler={updateModalState}
                   />
                 );
               })}
