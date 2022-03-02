@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Search } from 'components/common';
 import { useAppSelector, useAppDispatch } from 'hooks/useStore';
 import * as M from './FilterCheckBox.styled';
@@ -12,7 +12,7 @@ const FilterCheckBoxs = () => {
   //체크박스랑 연결된값
   const filters = useAppSelector(state => state.orderSheet.columns);
   const orderDatas = Object.entries(ORDER_SHEET_KEY_MAP);
-console.log(filters)
+
 //검색이랑 연결된값
   const [linkedValue, setLinkedValue] = useState<string[]>(filters);
 
