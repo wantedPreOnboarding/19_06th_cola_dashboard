@@ -48,10 +48,13 @@ const OrderSheetRow = ({
     <M.MUITableRow
       hover={hover}
       {...(stickyTop !== undefined && {
-        sx: { position: 'sticky', zIndex: 1, top: stickyTop, ...sx },
-      })}
-      {...(isHeader && {
-        sx: { cursor: 'default', ...sx },
+        sx: {
+          position: 'sticky',
+          zIndex: 1,
+          top: stickyTop,
+          cursor: !isHeader ? 'pointer' : 'default',
+          ...sx,
+        },
       })}
       onClick={modalHandler}
     >
