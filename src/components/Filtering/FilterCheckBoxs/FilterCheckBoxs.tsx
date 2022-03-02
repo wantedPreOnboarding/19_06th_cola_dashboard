@@ -33,12 +33,13 @@ const FilterCheckBoxs = () => {
       <Search datas={orderDatas} updateResult={updateSearch} />
         {filters&& linkedValue.map(key=>{
           const filterValue= ORDER_SHEET_KEY_MAP[key];
+    
           return(
           <CheckboxLabel
             key={key}
             filterKey={key}
             filterValue={filterValue}
-            checked={filters.includes(key) ? true : false}
+            checked={filters.includes(key)}
             changeHandler={changeHandler}
           />)
         })}
