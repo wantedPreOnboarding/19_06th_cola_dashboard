@@ -1,6 +1,8 @@
+import SearchProps from "components/common/Search/Search.type"
+
 export default interface filterSearchProps {
   inputValue?: string;
-  datas: string[][]|string[];
+  datas: SearchProps["datas"];
   result?: result[];
 }
 
