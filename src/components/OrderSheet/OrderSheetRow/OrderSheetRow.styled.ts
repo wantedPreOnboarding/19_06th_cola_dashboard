@@ -14,4 +14,5 @@ export const MUITableCellInnerContainer = styled('div')`
 export const MUITableRow = styled(TableRow)`
   height: 43px;
   background-color: ${({ theme }) => theme.palette.primary.contrastText};
+  cursor: pointer;
 `;
