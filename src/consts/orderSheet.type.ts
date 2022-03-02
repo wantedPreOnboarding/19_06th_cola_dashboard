@@ -1,5 +1,4 @@
 export type ORDER_SHEET_KEY_MAP_Type = {
-  [index: string]: string,
     source: string,
     outgoingFileName: string,
     id: string,

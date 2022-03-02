@@ -1,5 +1,5 @@
 import SearchProps from "components/common/Search/Search.type"
-
+import { Order } from 'redux/services/orderSheet.type';
 export default interface filterSearchProps {
   inputValue?: string;
   datas: SearchProps["datas"];
@@ -8,5 +8,5 @@ export default interface filterSearchProps {
 
 export interface result {
   id: number;
-  key: string;
+  key: keyof Order;
 }

@@ -1,6 +1,7 @@
+import { Order } from 'redux/services/orderSheet.type';
 export type CheckBoxLabelProps = {
-  filterKey:string;
+  filterKey:keyof Order;
   filterValue: string;
   checked: boolean;
-  changeHandler: (checked: boolean, filterValue: string) => void;
+  changeHandler: (checked: boolean, filterKey: keyof Order) => void;
 };

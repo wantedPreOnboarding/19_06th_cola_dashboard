@@ -6,24 +6,25 @@ import { ORDER_SHEET_KEY_MAP } from 'consts/orderSheet';
 import CheckboxLabel from '../CheckboxLabel/CheckboxLabel';
 import { renewalColumns } from 'redux/slices/orderSheet';
 import { result } from 'utils/filterSearch/filterSearch.type';
+import { Order } from 'redux/services/orderSheet.type';
 const FilterCheckBoxs = () => {
   const dispatch = useAppDispatch();
 
   //체크박스랑 연결된값
   const filters = useAppSelector(state => state.orderSheet.columns);
-  const orderDatas = Object.entries(ORDER_SHEET_KEY_MAP);
+  const orderDatas = Object.entries(ORDER_SHEET_KEY_MAP) as [keyof Order,string][];
 
 //검색이랑 연결된값
-  const [linkedValue, setLinkedValue] = useState<string[]>(filters);
+  const [linkedValue, setLinkedValue] = useState(filters);
 
-  const changeHandler = (checked: boolean, filterKey: string) => {
+  const changeHandler = (checked: boolean, filterKey: keyof Order) => {
     checked
       ? dispatch(renewalColumns([...filters, filterKey]))
       : dispatch(renewalColumns(filters.filter(filter => filter !== filterKey)));
   };
 
   const updateSearch = (updateResult: result[]): void => {
-    setLinkedValue([...updateResult.map(r => r.key)]);
+    setLinkedValue(updateResult.map(r => r.key));
   };
 
 
