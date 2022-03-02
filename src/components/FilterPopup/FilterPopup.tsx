@@ -10,10 +10,9 @@ import { Paper } from '@mui/material';
 
 const FilterPopup = ({ rowTitle }: FilterPopupProps): ReactElement => {
   const { data } = useGetOrderSheetQuery(null);
-  const filters = useAppSelector(state => state.orderSheet.ids);
   const dispatch = useAppDispatch();
 
-  const [rowData, setRowData] = useState<string[]>([]);
+  const [rowData, setRowData] = useState<string[][]>([]);
   const [resultId, setResultId] = useState<number[]>([]);
 
   const updateSearch = (updateResult: result[]): void => {
@@ -22,7 +21,7 @@ const FilterPopup = ({ rowTitle }: FilterPopupProps): ReactElement => {
 
   useEffect(() => {
     if (data) {
-      setRowData(data.map(data => String(data[rowTitle])));
+      // setRowData(data.map(data => String(data[rowTitle])));
     }
   }, [data]);
 
@@ -33,7 +32,7 @@ const FilterPopup = ({ rowTitle }: FilterPopupProps): ReactElement => {
   return (
     <M.Wrapper>
       <Paper elevation={3} sx={{ textAlign: 'center', padding: '5px', bgColor: 'white' }}>
-        <Search data={rowData} updateResult={updateSearch} />
+        {/* <Search datas={rowData} updateResult={updateSearch} /> */}
       </Paper>
     </M.Wrapper>
   );
