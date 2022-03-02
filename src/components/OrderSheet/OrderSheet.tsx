@@ -12,8 +12,6 @@ const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
 
   const initialFixedRows = orderSheet.map(row => ({ ...row, isFixed: false }));
 
-  const [isFixedAllRows, setIsFixedAllRows] = useState<boolean>(false);
-
   const [hasFixStatusRows, setFixedRows] = React.useState<FixedOrderSheet>(initialFixedRows);
 
   const updateRowFix = useCallback(
@@ -26,11 +24,6 @@ const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
     },
     [hasFixStatusRows],
   );
-
-  const updateEveryRowsFix = useCallback(() => {
-    setFixedRows(hasFixStatusRows.map(row => ({ ...row, isFixed: !isFixedAllRows })));
-    setIsFixedAllRows(!isFixedAllRows);
-  }, []);
 
   const getIndexOfFixedRows = useCallback(
     (id: number) => {
@@ -61,7 +54,6 @@ const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
                 stickyTop={0}
                 columns={selectedColumns}
                 sx={{ backgroundColor: 'primary.xlight' }}
-                onClickHandler={updateEveryRowsFix}
               />
             </TableHead>
             <TableBody>
