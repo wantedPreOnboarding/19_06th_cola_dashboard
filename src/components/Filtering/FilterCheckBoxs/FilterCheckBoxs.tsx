@@ -6,38 +6,43 @@ import { ORDER_SHEET_KEY_MAP } from 'consts/orderSheet';
 import CheckboxLabel from '../CheckboxLabel/CheckboxLabel';
 import { renewalColumns } from 'redux/slices/orderSheet';
 import { result } from 'utils/filterSearch/filterSearch.type';
+import { Order } from 'redux/services/orderSheet.type';
 const FilterCheckBoxs = () => {
   const dispatch = useAppDispatch();
 
   //체크박스랑 연결된값
   const filters = useAppSelector(state => state.orderSheet.columns);
-  //기초값
-  const filterValues = Object.values(ORDER_SHEET_KEY_MAP);
-  //검색이랑 연결된값
-  const [linkedValue, setLinkedValue] = useState<string[]>(filterValues);
+  const orderDatas = Object.entries(ORDER_SHEET_KEY_MAP) as [keyof Order,string][];
 
-  const changeHandler = (checked: boolean, filterkey: string) => {
+//검색이랑 연결된값
+  const [linkedValue, setLinkedValue] = useState(filters);
+
+  const changeHandler = (checked: boolean, filterKey: keyof Order) => {
     checked
-      ? dispatch(renewalColumns([...filters, filterkey]))
-      : dispatch(renewalColumns(filters.filter(filter => filter !== filterkey)));
+      ? dispatch(renewalColumns([...filters, filterKey]))
+      : dispatch(renewalColumns(filters.filter(filter => filter !== filterKey)));
   };
 
   const updateSearch = (updateResult: result[]): void => {
-    setLinkedValue([...updateResult.map(r => r.value)]);
+    setLinkedValue(updateResult.map(r => r.key));
   };
+
 
   return (
     <M.WrapperBox>
-      <Search data={filterValues} updateResult={updateSearch} />
-      {ORDER_SHEET_KEY_MAP &&
-        linkedValue.map(filterKey => (
+      <Search datas={orderDatas} updateResult={updateSearch} />
+        {filters&& linkedValue.map(key=>{
+          const filterValue= ORDER_SHEET_KEY_MAP[key];
+    
+          return(
           <CheckboxLabel
-            key={filterKey}
-            filterKey={filterKey}
-            checked={filters.includes(filterKey) ? true : false}
+            key={key}
+            filterKey={key}
+            filterValue={filterValue}
+            checked={filters.includes(key)}
             changeHandler={changeHandler}
-          />
-        ))}
+          />)
+        })}
     </M.WrapperBox>
   );
 };

@@ -1,14 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ORDER_SHEET_KEY_MAP } from 'consts/orderSheet';
+import { Order } from 'redux/services/orderSheet.type';
 
 export interface orderSheetState {
   ids: number[];
-  columns: string[];
+  columns: (keyof Order)[];
 }
 
 const initialState: orderSheetState = {
   ids: [], //현재 테이블에서 보여줄 엑셀 행들
-  columns: Object.keys(ORDER_SHEET_KEY_MAP), // 현재 테이블에서 보여줘야할 컬럼들
+  columns : Object.keys(ORDER_SHEET_KEY_MAP) as (keyof Order)[], // 현재 테이블에서 보여줘야할 컬럼들
 };
 
 export const orderSheetSlice = createSlice({
