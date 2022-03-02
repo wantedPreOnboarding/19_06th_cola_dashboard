@@ -6,7 +6,8 @@ export interface OrderSheetProps {
 
 export interface IsFixed {
   isFixed: boolean;
-  fakeId: number;
 }
 
-export type FilteredOrder = Partial<Order> & IsFixed;
+export type FixedOrder = Order & IsFixed;
+
+export type FixedOrderSheet = FixedOrder[];
