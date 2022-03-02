@@ -6,12 +6,12 @@ import { Box, IconButton, FormControl, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import * as M from './Search.style';
 
-const Search = ({ data, updateResult }: SearchProps) => {
+const Search = ({ datas, updateResult }: SearchProps) => {
   const [searchAreaValue, setSearchAreaValue] = useState<string>('');
   const debounceValue = useDebounce<string>(searchAreaValue, 1000);
 
   const submitResult = () => {
-    updateResult(filterSearch({ inputValue: searchAreaValue, data }));
+    updateResult(filterSearch({ inputValue: searchAreaValue, datas }));
   };
 
   useEffect(() => {

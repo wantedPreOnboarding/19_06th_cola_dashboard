@@ -1,10 +1,10 @@
 export default interface filterSearchProps {
   inputValue?: string;
-  data: string[];
+  datas: string[][]|string[];
   result?: result[];
 }
 
 export interface result {
   id: number;
-  value: string;
+  key: string;
 }

@@ -6,18 +6,11 @@ const SearchTest = () => {
   const updateSearch = (updateResult: result[]): void => {
     console.log(updateResult);
   };
+
+  const data=[['source', '데이터 출처'],['outgoingFileName', '출고서 파일명'],['id', '엑셀 행 순번'],['movementType', '이동 상태'],['orderSheetType', '주문서 양식'],['orderId', '주문서 번호']]
   return (
     <Search
-      data={[
-        '데이터 출처',
-        '출고서 파일명',
-        '이동 상태',
-        '주문서 양식',
-        '주문번호',
-        '주문명',
-        '물건상품코드',
-        '물건상품ID',
-      ]}
+      datas={data}
       updateResult={updateSearch}
     />
   );

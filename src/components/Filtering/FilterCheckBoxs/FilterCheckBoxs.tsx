@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Search } from 'components/common';
 import { useAppSelector, useAppDispatch } from 'hooks/useStore';
 import * as M from './FilterCheckBox.styled';
@@ -11,40 +11,36 @@ const FilterCheckBoxs = () => {
 
   //체크박스랑 연결된값
   const filters = useAppSelector(state => state.orderSheet.columns);
-  //기초값
-  const filterValues = Object.values(ORDER_SHEET_KEY_MAP);
-  const newValue=Object.entries(ORDER_SHEET_KEY_MAP)
-
-  const findKey=(value:string)=>{
-    const idx=newValue.findIndex(val=>val[1]===value)
-    return newValue[idx][0]
-  }
-
+  const orderDatas = Object.entries(ORDER_SHEET_KEY_MAP);
+console.log(filters)
 //검색이랑 연결된값
-  const [linkedValue, setLinkedValue] = useState<string[]>(filterValues);
+  const [linkedValue, setLinkedValue] = useState<string[]>(filters);
 
-  const changeHandler = (checked: boolean, filterValue: string) => {
+  const changeHandler = (checked: boolean, filterKey: string) => {
     checked
-      ? dispatch(renewalColumns([...filters, findKey(filterValue)]))
-      : dispatch(renewalColumns(filters.filter(filter => filter !== findKey(filterValue))));
+      ? dispatch(renewalColumns([...filters, filterKey]))
+      : dispatch(renewalColumns(filters.filter(filter => filter !== filterKey)));
   };
 
   const updateSearch = (updateResult: result[]): void => {
-    setLinkedValue([...updateResult.map(r => r.value)]);
+    setLinkedValue([...updateResult.map(r => r.key)]);
   };
+
 
   return (
     <M.WrapperBox>
-      <Search data={filterValues} updateResult={updateSearch} />
-      {ORDER_SHEET_KEY_MAP &&
-        linkedValue.map(filterValue => (
+      <Search datas={orderDatas} updateResult={updateSearch} />
+        {filters&& linkedValue.map(key=>{
+          const filterValue= ORDER_SHEET_KEY_MAP[key];
+          return(
           <CheckboxLabel
-            key={filterValue}
+            key={key}
+            filterKey={key}
             filterValue={filterValue}
-            checked={filters.includes(findKey(filterValue)) ? true : false}
+            checked={filters.includes(key) ? true : false}
             changeHandler={changeHandler}
-          />
-        ))}
+          />)
+        })}
     </M.WrapperBox>
   );
 };

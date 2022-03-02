@@ -1,4 +1,5 @@
-export const ORDER_SHEET_KEY_MAP = {
+import {ORDER_SHEET_KEY_MAP_Type} from "./orderSheet.type"
+export const ORDER_SHEET_KEY_MAP:ORDER_SHEET_KEY_MAP_Type = {
   source: '데이터 출처',
   outgoingFileName: '출고서 파일명',
   id: '엑셀 행 순번',
