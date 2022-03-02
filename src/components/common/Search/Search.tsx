@@ -22,8 +22,8 @@ const Search = ({ datas, updateResult }: SearchProps) => {
     setSearchAreaValue(event.target.value);
   };
 
-  const SubmitHandler = (event: React.FormEvent<HTMLDivElement> | undefined ) => {
-    event&&event.preventDefault();
+  const SubmitHandler = (event: React.FormEvent<HTMLDivElement>) => {
+    event.preventDefault();
     submitResult();
   };
 
