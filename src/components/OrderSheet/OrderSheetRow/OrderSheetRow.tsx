@@ -1,11 +1,10 @@
-import { Checkbox, Divider, TableCell } from '@mui/material';
 import React, { ReactElement } from 'react';
+import { Checkbox, Divider, TableCell } from '@mui/material';
 import * as M from './OrderSheetRow.styled';
 import { MUProps } from 'types/props';
-import OrderSheetRowProps from './OrderSheetRow.type';
 import { ORDER_SHEET_KEY_MAP } from 'consts/orderSheet';
+import OrderSheetRowProps from './OrderSheetRow.type';
 import { Order } from 'redux/services/orderSheet.type';
-import { FixedOrder } from '../OrderSheet.type';
 
 const OrderSheetRow = ({
   order,
@@ -16,7 +15,7 @@ const OrderSheetRow = ({
   sx,
   onClickHandler,
 }: MUProps<OrderSheetRowProps>): ReactElement => {
-  const filteredOrder = Object.entries(order).filter(([key]: (keyof FixedOrder)[]) =>
+  const filteredOrder = Object.entries(order).filter(([key]: (keyof Order)[]) =>
     (columns as string[]).includes(key),
   );
 
@@ -28,24 +27,45 @@ const OrderSheetRow = ({
       })}
       onClick={() => (isHeader ? onClickHandler?.() : onClickHandler?.(order.orderId))}
     >
-      <TableCell
-        component={isHeader ? 'th' : undefined}
-        scope="row"
-        align="center"
-        sx={{ width: '40px' }}
-      >
-        <Checkbox checked={order.isFixed} />
-      </TableCell>
+      <MemoTableCheckBox isHeader={isHeader} isChecked={!!stickyTop} />
+
       {filteredOrder.map(([key, value], index) => (
-        <TableCell component={isHeader ? 'th' : undefined} scope="row" key={key + index}>
-          <M.MUITableCellInnerContainer>
-            <Divider orientation="vertical" flexItem />
-            <span>{isHeader ? ORDER_SHEET_KEY_MAP[key as keyof Order] : value}</span>
-          </M.MUITableCellInnerContainer>
-        </TableCell>
+        <MemoTableCell
+          key={key + index}
+          isHeader={isHeader}
+          value={isHeader ? ORDER_SHEET_KEY_MAP[key as keyof Order] : value}
+        />
       ))}
     </M.MUITableRow>
   );
 };
+
+const MemoTableCheckBox = React.memo(
+  ({ isHeader, isChecked }: { isHeader: OrderSheetRowProps['isHeader']; isChecked?: boolean }) => (
+    <TableCell
+      component={isHeader ? 'th' : undefined}
+      scope="row"
+      align="center"
+      sx={{ width: '40px' }}
+    >
+      <Checkbox checked={isChecked} />
+    </TableCell>
+  ),
+);
+
+MemoTableCheckBox.displayName = 'MemoTableCheckBox';
+
+const MemoTableCell = React.memo(
+  ({ isHeader, value }: { isHeader: OrderSheetRowProps['isHeader']; value: string | number }) => (
+    <TableCell component={isHeader ? 'th' : undefined} scope="row">
+      <M.MUITableCellInnerContainer>
+        <Divider orientation="vertical" flexItem />
+        <span>{value}</span>
+      </M.MUITableCellInnerContainer>
+    </TableCell>
+  ),
+);
+
+MemoTableCell.displayName = 'MemoTableCell';
 
 export default React.memo(OrderSheetRow);

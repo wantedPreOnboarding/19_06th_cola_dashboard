@@ -16,13 +16,16 @@ const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
 
   const [hasFixStatusRows, setFixedRows] = React.useState<FixedOrderSheet>(initialFixedRows);
 
-  const updateRowFix = useCallback((rowId?: number) => {
-    setFixedRows(
-      hasFixStatusRows.map(row => {
-        return row.orderId === rowId ? { ...row, isFixed: !row.isFixed } : row;
-      }),
-    );
-  }, []);
+  const updateRowFix = useCallback(
+    (rowId?: number) => {
+      setFixedRows(
+        hasFixStatusRows.map(row => {
+          return row.orderId === rowId ? { ...row, isFixed: !row.isFixed } : row;
+        }),
+      );
+    },
+    [hasFixStatusRows],
+  );
 
   const updateEveryRowsFix = useCallback(() => {
     setFixedRows(hasFixStatusRows.map(row => ({ ...row, isFixed: !isFixedAllRows })));
@@ -53,7 +56,7 @@ const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
           >
             <TableHead>
               <OrderSheetRow
-                order={hasFixStatusRows[0]}
+                order={orderSheet[0]}
                 isHeader={true}
                 stickyTop={0}
                 columns={selectedColumns}
@@ -62,12 +65,12 @@ const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
               />
             </TableHead>
             <TableBody>
-              {hasFixStatusRows.map(order => {
+              {orderSheet.map(order => {
                 return (
                   <OrderSheetRow
                     key={order.orderId}
                     order={order}
-                    stickyTop={order.isFixed ? getIndexOfFixedRows(order.orderId) * 43 : undefined}
+                    stickyTop={getIndexOfFixedRows(order.orderId) * 43 || undefined}
                     hover
                     columns={selectedColumns}
                     onClickHandler={updateRowFix}
