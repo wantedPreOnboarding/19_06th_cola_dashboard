@@ -15,7 +15,7 @@ const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
 
   const initialFixedRows = orderSheet.map(row => ({ ...row, isFixed: false }));
 
-  const [hasFixStatusRows, setFixedRows] = React.useState<FixedOrderSheet>(initialFixedRows);
+  const [hasFixStatusRows, setFixedRows] = useState<FixedOrderSheet>(initialFixedRows);
 
   const updateRowFix = useCallback(
     (rowId?: number) => {
