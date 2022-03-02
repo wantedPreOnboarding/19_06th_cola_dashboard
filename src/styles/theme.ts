@@ -66,6 +66,15 @@ const theme = createTheme({
         },
       },
     },
+    MuiCheckbox: {
+      styleOverrides: {
+        root: {
+          '&:hover': {
+            backgroundColor: '#D7E3F7',
+          },
+        },
+      },
+    },
   },
 });
 
