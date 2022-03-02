@@ -23,11 +23,20 @@ const OrderSheetRow = ({
     <M.MUITableRow
       hover={hover}
       {...(stickyTop !== undefined && {
-        sx: { position: 'sticky', zIndex: 1, top: stickyTop, ...sx },
+        sx: {
+          position: 'sticky',
+          zIndex: 100,
+          top: stickyTop,
+          ...sx,
+        },
       })}
       onClick={() => (isHeader ? onClickHandler?.() : onClickHandler?.(order.orderId))}
     >
-      <MemoTableCheckBox isHeader={isHeader} isChecked={!!stickyTop} />
+      {!isHeader ? (
+        <MemoTableCheckBox isHeader={isHeader} isChecked={!!stickyTop} />
+      ) : (
+        <TableCell component={isHeader ? 'th' : undefined} />
+      )}
 
       {filteredOrder.map(([key, value], index) => (
         <MemoTableCell
