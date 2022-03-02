@@ -56,6 +56,17 @@ const theme = createTheme({
       fontWeight: 400,
     },
   },
+  components: {
+    MuiTableRow: {
+      styleOverrides: {
+        root: {
+          '&.MuiTableRow-hover:hover': {
+            backgroundColor: '#f2f2f2',
+          },
+        },
+      },
+    },
+  },
 });
 
 export { theme };

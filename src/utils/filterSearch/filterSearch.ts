@@ -1,10 +1,10 @@
 import filterSearchProps from './filterSearch.type';
 
-const filterSearch = ({ inputValue = '', data }: filterSearchProps) => {
+const filterSearch = ({ inputValue = '', datas }: filterSearchProps) => {
   const result: filterSearchProps['result'] = [];
-  data.map((value, index) => {
+  datas.map(([key,value], index) => {
     if (value.includes(inputValue)) {
-      result.push({ id: index, value });
+      result.push({ id: index, key:key});
     }
   });
   return result;

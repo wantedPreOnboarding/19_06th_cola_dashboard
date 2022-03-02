@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { TextField, InputBase, FormControl, Box } from '@mui/material';
+import {  InputBase, Box } from '@mui/material';
 
 export const SearchBar = styled(InputBase)`
   width: 100%;

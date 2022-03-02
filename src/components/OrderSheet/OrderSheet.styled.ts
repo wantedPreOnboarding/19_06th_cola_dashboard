@@ -1,7 +1,7 @@
 import { styled, TableCell, TableContainer } from '@mui/material';
 
-export const MUIContainer = styled(TableContainer)`
-  height: calc(100vh - 154px);
+export const OrderSheetContainer = styled(TableContainer)`
+  height: calc(100vh - 64px);
   overflow: auto;
   white-space: nowrap;
   hr {
@@ -21,4 +21,4 @@ export const MUIContainer = styled(TableContainer)`
   }
 `;
 
-export const MUITableCell = styled(TableCell)``;
+export const OrderSheetCell = styled(TableCell)``;

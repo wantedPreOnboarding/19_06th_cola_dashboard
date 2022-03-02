@@ -12,7 +12,7 @@ const MenuBox = () => {
   window.addEventListener('resize', () => {
     setNewWidth(window.innerWidth);
   });
-  console.log(newWidth, newScroll);
+
   return (
     <M.Wrapper newWidth={newWidth + newScroll}>
       <h1>출고 요청 매핑 리스트</h1>

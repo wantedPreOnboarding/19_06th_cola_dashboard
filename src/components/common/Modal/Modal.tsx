@@ -1,21 +1,26 @@
 import React, { ReactElement, useState } from 'react';
+//redux
+import { useAppSelector } from 'hooks';
+import { useGetOrderSheetQuery } from 'redux/services/orderSheet';
+import { useDispatch } from 'react-redux';
+import { renewalOpenState } from 'redux/slices/modal';
+//style
 import { Modal as MUIModal, Button } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { useGetOrderSheetQuery } from 'redux/services/orderSheet';
 import * as M from './Modal.styled';
 
 const Modal = (): ReactElement => {
+  //redux
   const { data } = useGetOrderSheetQuery(null);
-  const [open, setOpen] = useState(false);
-  const [count, setCount] = useState(0);
-  const item = data?.[count];
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const modalState = useAppSelector(state => state.modal);
+  const dispatch = useDispatch();
+
+  const item = data?.[modalState.modalId];
+  const handleClose = () => dispatch(renewalOpenState(true));
 
   return (
     <>
-      <Button onClick={handleOpen}>BUTTON</Button>
-      <MUIModal open={open} onClose={handleClose}>
+      <MUIModal open={modalState.isOpen} onClose={handleClose}>
         <M.Wrapper>
           <M.Header>
             <M.Title>데이터 출처</M.Title>
