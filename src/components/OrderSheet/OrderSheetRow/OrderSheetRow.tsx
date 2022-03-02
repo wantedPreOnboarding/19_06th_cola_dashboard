@@ -13,6 +13,7 @@ const OrderSheetRow = ({
   stickyTop,
   sx,
   onClickHandler,
+  modalHandler,
 }: MUProps<OrderSheetRowProps>): ReactElement => {
   return (
     <M.MUITableRow
@@ -20,10 +21,18 @@ const OrderSheetRow = ({
       {...(stickyTop !== undefined && {
         sx: { position: 'sticky', zIndex: 1, top: stickyTop, ...sx },
       })}
-      onClick={() => (isHeader ? onClickHandler?.() : onClickHandler?.(order.orderId))}
+      onClick={() => modalHandler?.(order.id)}
     >
       <TableCell component={isHeader ? 'th' : undefined} scope="row" align="center">
-        <Checkbox checked={order.isFixed} />
+        <Checkbox
+          checked={order.isFixed}
+          onClick={event => (
+            <>
+              {event.stopPropagation()}
+              {isHeader ? onClickHandler?.() : onClickHandler?.(order.orderId)}
+            </>
+          )}
+        />
       </TableCell>
       {(isHeader ? Object.keys(order) : Object.values(order)).map((value, index) => (
         <TableCell component={isHeader ? 'th' : undefined} scope="row" key={index}>

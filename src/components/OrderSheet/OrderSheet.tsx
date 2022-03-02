@@ -1,18 +1,26 @@
 import React, { ReactElement, useCallback, useState } from 'react';
+//component
 import OrderSheetRow from './OrderSheetRow/OrderSheetRow';
+import MenuBox from 'components/MenuBox/MenuBox';
+//redux
+import { useAppSelector } from 'hooks';
+import { useDispatch } from 'react-redux';
+import { Order } from 'redux/services/orderSheet.type';
+import { renewalModalId, renewalOpenState } from 'redux/slices/modal';
+//style
 import { Table, TableHead, TableBody } from '@mui/material';
 import * as M from './OrderSheet.styled';
 import { FilteredOrder, OrderSheetProps } from './OrderSheet.type';
-import { useAppSelector } from 'hooks';
-import { Order } from 'redux/services/orderSheet.type';
-import MenuBox from 'components/MenuBox/MenuBox';
+
 const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
+  const dispatch = useDispatch();
   const selectedColumns = useAppSelector(state => state.orderSheet.columns);
 
   const initialFixedRows = orderSheet.map(row => ({ ...row, isFixed: false }));
 
   const [isFixedAllRows, setIsFixedAllRows] = useState<boolean>(false);
   const [hasFixStatusRows, setFixedRows] = React.useState(initialFixedRows);
+  const [currentModalId, setCurrentModalId] = useState<number>(0);
 
   const filteredOrderSheet = hasFixStatusRows.map(row =>
     selectedColumns.reduce((acc, cur) => ({ ...acc, [cur]: row[cur as keyof Order] }), {
@@ -20,6 +28,11 @@ const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
       isFixed: row.isFixed,
     }),
   ) as FilteredOrder[];
+
+  const updateModalState = (id?: number) => {
+    id && dispatch(renewalModalId(id - 1));
+    dispatch(renewalOpenState(true));
+  };
 
   const updateRowFix = (rowId?: number) => {
     setFixedRows(
@@ -83,6 +96,7 @@ const OrderSheet = ({ orderSheet }: OrderSheetProps): ReactElement => {
                     stickyTop={order.isFixed ? getIndexOfFixedRows(order.fakeId) * 43 : undefined}
                     hover
                     onClickHandler={updateRowFix}
+                    modalHandler={updateModalState}
                   />
                 );
               })}
