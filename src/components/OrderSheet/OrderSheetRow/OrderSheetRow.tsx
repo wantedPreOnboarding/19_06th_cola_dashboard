@@ -53,6 +53,7 @@ const OrderSheetRow = ({
           zIndex: 100,
           top: stickyTop,
           cursor: !isHeader ? 'pointer' : 'default',
+          bgcolor: 'grey.100',
           ...sx,
         },
       })}
